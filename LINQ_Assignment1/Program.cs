@@ -52,18 +52,47 @@ namespace LINQ_Assignment1
             #region task3
             //3.Get all products where UnitPrice is between 10 and 30
 
-            var ProductsWhereUnitPriceBetween10And30 = ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
-            foreach (var item in ProductsWhereUnitPriceBetween10And30)
+            //var ProductsWhereUnitPriceBetween10And30 = ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+            //foreach (var item in ProductsWhereUnitPriceBetween10And30)
+            //{
+            //    Console.WriteLine(item);   
+            //}
+            //Console.WriteLine("====================");
+            //var QueryProductsWhereUnitPriceBetween10And30 = from p in ProductList
+            //                                                where p.UnitPrice >= 10 && p.UnitPrice <= 30
+            //                                                select p;
+            //foreach (var item in QueryProductsWhereUnitPriceBetween10And30)
+            //{
+            //    Console.WriteLine(item);   
+            //}
+
+
+            #endregion
+
+            #region task4
+            //4.Get all products that are in stock(UnitsInStock >0) 
+            //    and belong to the "Condiments" category.
+            var CondimentsCategory = ProductList.Where(p => p.Category.Contains("Condiments"));
+            foreach (var item in CondimentsCategory)
             {
-                Console.WriteLine(item);   
+                Console.WriteLine(item);
             }
-            Console.WriteLine("====================");
-            var QueryProductsWhereUnitPriceBetween10And30 = from p in ProductList
-                                                            where p.UnitPrice >= 10 && p.UnitPrice <= 30
-                                                            select p;
-            foreach (var item in QueryProductsWhereUnitPriceBetween10And30)
+            Console.WriteLine("==================================");
+
+            var productsinStockANDCondimentsCategory = ProductList.Where(p => p.UnitsInStock > 0 && p.Category.Contains("Condiments"));
+            foreach (var item in productsinStockANDCondimentsCategory)
             {
-                Console.WriteLine(item);   
+                Console.WriteLine(item);
+                
+            }
+            Console.WriteLine("==================================");
+
+            var QueryproductsinStockANDCondimentsCategory = from p in ProductList
+                                                            where p.UnitsInStock > 0 && p.Category.Contains("Condiments")
+                                                            select p;
+            foreach (var item in QueryproductsinStockANDCondimentsCategory)
+            {
+                Console.WriteLine(item);
             }
             #endregion
         }
