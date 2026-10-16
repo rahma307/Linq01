@@ -72,25 +72,41 @@ namespace LINQ_Assignment1
             #region task4
             //4.Get all products that are in stock(UnitsInStock >0) 
             //    and belong to the "Condiments" category.
-            var CondimentsCategory = ProductList.Where(p => p.Category.Contains("Condiments"));
-            foreach (var item in CondimentsCategory)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("==================================");
+            //var CondimentsCategory = ProductList.Where(p => p.Category.Contains("Condiments"));
+            //foreach (var item in CondimentsCategory)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine("==================================");
 
-            var productsinStockANDCondimentsCategory = ProductList.Where(p => p.UnitsInStock > 0 && p.Category.Contains("Condiments"));
-            foreach (var item in productsinStockANDCondimentsCategory)
-            {
-                Console.WriteLine(item);
-                
-            }
-            Console.WriteLine("==================================");
+            //var productsinStockANDCondimentsCategory = ProductList.Where(p => p.UnitsInStock > 0 && p.Category.Contains("Condiments"));
+            //foreach (var item in productsinStockANDCondimentsCategory)
+            //{
+            //    Console.WriteLine(item);
 
-            var QueryproductsinStockANDCondimentsCategory = from p in ProductList
-                                                            where p.UnitsInStock > 0 && p.Category.Contains("Condiments")
-                                                            select p;
-            foreach (var item in QueryproductsinStockANDCondimentsCategory)
+            //}
+            //Console.WriteLine("==================================");
+
+            //var QueryproductsinStockANDCondimentsCategory = from p in ProductList
+            //                                                where p.UnitsInStock > 0 && p.Category.Contains("Condiments")
+            //                                                select p;
+            //foreach (var item in QueryproductsinStockANDCondimentsCategory)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region task5
+            //5.Create a new anonymous type with three
+            //   properties: ● Name → the product name
+            //   ● Price → the unit price
+            //   ● StockStatus → a string: "Available" if
+            //   UnitsInStock > 0, otherwise "Out of Stock"
+            //   ● Print the result.
+
+
+            var ProductInfo = ProductList.Select(p => new { Name = p.ProductName, Price = p.UnitPrice, StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock" });
+            foreach (var item in ProductInfo)
             {
                 Console.WriteLine(item);
             }
