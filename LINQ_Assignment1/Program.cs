@@ -30,23 +30,41 @@ namespace LINQ_Assignment1
             #endregion
 
             #region Task2
-            //2.Get a list of only the product names from ProductList.
-            // Print each name.
+            ////2.Get a list of only the product names from ProductList.
+            //// Print each name.
 
-            var ProductsName = ProductList.Select(p => p.ProductName);
-            foreach (var item in ProductsName)
+            //var ProductsName = ProductList.Select(p => p.ProductName);
+            //foreach (var item in ProductsName)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Console.WriteLine("=====================================");
+            //var QueryProductsName = from p in ProductList
+            //                        select p.ProductName;
+            //foreach (var item in QueryProductsName)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region task3
+            //3.Get all products where UnitPrice is between 10 and 30
+
+            var ProductsWhereUnitPriceBetween10And30 = ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+            foreach (var item in ProductsWhereUnitPriceBetween10And30)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item);   
             }
-
-            Console.WriteLine("=====================================");
-            var QueryProductsName = from p in ProductList
-                                    select p.ProductName;
-            foreach (var item in QueryProductsName)
+            Console.WriteLine("====================");
+            var QueryProductsWhereUnitPriceBetween10And30 = from p in ProductList
+                                                            where p.UnitPrice >= 10 && p.UnitPrice <= 30
+                                                            select p;
+            foreach (var item in QueryProductsWhereUnitPriceBetween10And30)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item);   
             }
-
             #endregion
         }
     }
