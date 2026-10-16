@@ -105,10 +105,23 @@ namespace LINQ_Assignment1
             //   ● Print the result.
 
 
-            var ProductInfo = ProductList.Select(p => new { Name = p.ProductName, Price = p.UnitPrice, StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock" });
-            foreach (var item in ProductInfo)
+            //var ProductInfo = ProductList.Select(p => new { Name = p.ProductName, Price = p.UnitPrice, StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock" });
+            //foreach (var item in ProductInfo)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Tak6
+
+            //6.Print each product's name along with its position
+            //  (1 - based) in the list. Expected format: 1.Chai, 2.
+            //  Chang, etc.
+
+            var ProductsWithPosition = ProductList.Select((p, i) => $"{i + 1}. {p.ProductName},");
+            foreach (var item in ProductsWithPosition)
             {
-                Console.WriteLine(item);
+                Console.Write(item);
             }
             #endregion
         }
